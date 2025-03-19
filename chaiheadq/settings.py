@@ -27,6 +27,27 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Cloudinary Settings
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "djflo4uqw",
+    "API_KEY": "396751726145827",
+    "API_SECRET": "FWLppVz8hhfSp4meTgo7sBNjqk0",
+}
+
+cloudinary.config( 
+    cloud_name = CLOUDINARY_STORAGE["CLOUD_NAME"], 
+    api_key = CLOUDINARY_STORAGE["API_KEY"], 
+    api_secret = CLOUDINARY_STORAGE["API_SECRET"]
+)
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+MEDIA_URL = "/media/"
+
 
 # Application definition
 
